@@ -1,0 +1,290 @@
+{
+	"HI": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Industrial Complex",
+		"specificNames": [
+			"Industrial Complex"
+		]
+	},
+	"SU": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Outskirts",
+		"specificNames": [
+			"Outskirts"
+		]
+	},
+	"CC": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Chimney Canopy",
+		"specificNames": [
+			"Chimney Canopy"
+		]
+	},
+	"SH": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Shaded Citadel",
+		"specificNames": [
+			"Shaded Citadel"
+		]
+	},
+	"LF": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Farm Arrays",
+		"specificNames": [
+			"Farm Arrays"
+		]
+	},
+	"WBLA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Badlands",
+		"specificNames": [
+			"Badlands"
+		]
+	},
+	"WPTA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Signal Spires",
+		"specificNames": [
+			"Signal Spires"
+		]
+	},
+	"WRRA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Rusted Wrecks",
+		"specificNames": [
+			"Rusted Wrecks"
+		]
+	},
+	"WTDA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Torrid Desert",
+		"specificNames": [
+			"Torrid Desert"
+		]
+	},
+	"WTDB": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Desolate Tract",
+		"specificNames": [
+			"Desolate Tract"
+		]
+	},
+	"WRFA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Coral Caves",
+		"specificNames": [
+			"Coral Caves"
+		]
+	},
+	"WRFB": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Turbulent Pump",
+		"specificNames": [
+			"Turbulent Pump"
+		]
+	},
+	"WSKA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Torrential Railways",
+		"specificNames": [
+			"Torrential Railways"
+		]
+	},
+	"WSKB": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Sunlit Port",
+		"specificNames": [
+			"Sunlit Port"
+		]
+	},
+	"WSKC": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Stormy Coast",
+		"specificNames": [
+			"Stormy Coast"
+		]
+	},
+	"WSKD": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Shrouded Coast",
+		"specificNames": [
+			"Shrouded Coast"
+		]
+	},
+	"WVWA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Verdant Waterways",
+		"specificNames": [
+			"Verdant Waterways"
+		]
+	},
+	"WARA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Shattered Terrace",
+		"specificNames": [
+			"Shattered Terrace"
+		]
+	},
+	"WARB": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Salination",
+		"specificNames": [
+			"Salination"
+		]
+	},
+	"WARC": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Fetid Glen",
+		"specificNames": [
+			"Fetid Glen"
+		]
+	},
+	"WARD": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Cold Storage",
+		"specificNames": [
+			"Cold Storage"
+		]
+	},
+	"WARE": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Heat Ducts",
+		"specificNames": [
+			"Heat Ducts"
+		]
+	},
+	"WARF": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Aether Ridge",
+		"specificNames": [
+			"Aether Ridge"
+		]
+	},
+	"WARG": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "The Surface",
+		"specificNames": [
+			"The Surface"
+		]
+	},
+	"WAUA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Ancient Urban",
+		"specificNames": [
+			"Ancient Urban"
+		]
+	},
+	"WRSA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Daemon",
+		"specificNames": [
+			"Daemon"
+		]
+	},
+	"WSSR": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Unfortunate Evolution",
+		"specificNames": [
+			"Unfortunate Evolution"
+		]
+	},
+	"WSUR": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Crumbling Fringes",
+		"specificNames": [
+			"Crumbling Fringes"
+		]
+	},
+	"WHIR": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Corrupted Factories",
+		"specificNames": [
+			"Corrupted Factories"
+		]
+	},
+	"WDSR": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Decaying Tunnels",
+		"specificNames": [
+			"Decaying Tunnels"
+		]
+	},
+	"WGWR": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Infested Wastes",
+		"specificNames": [
+			"Infested Wastes"
+		]
+	},
+	"WORA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Outer Rim",
+		"specificNames": [
+			"Outer Rim"
+		]
+	}
+}
