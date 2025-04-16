@@ -477,15 +477,6 @@
         }
 
         function selectDifficulty(n) {
-            for (var i = 0; i < document.difficulty.difficulties.length; i++) {
-                if (document.difficulty.difficulties[i].value == n) {
-                    document.difficulty.difficulties[i].checked = true;
-                }
-            }
-            if (difficulty != n) {
-                difficulty = n;
-                pushState();
-            }
         }
 
         // Control with poor control options, whodvathot
@@ -1060,12 +1051,6 @@
                 }
                 loadedCount++;
             }, true);
-
-            if (Object.keys(regions).indexOf(region) != -1) {
-                for (let i = 0; i < slugcats.length; i++) {
-                    document.getElementById("scug-" + slugcats[i]).classList.toggle("hidden", regions[region]["slugcats"].indexOf(slugcats[i].toLowerCase()) == -1);
-                }
-            }
         }
 
         // My weird lisp parsing system for the placed object data
