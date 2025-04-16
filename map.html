@@ -1042,6 +1042,7 @@
                 // Don't enable certain layers when loaded for the first time
                 if (loadedCount == 1) {
                     map.removeLayer(roomTagsLayer);
+                    setCollapsibleWidths();
                 }
                 loadedCount++;
             }, true);
@@ -1476,7 +1477,6 @@
         var uncollapsed = null;
         var collapsible = document.querySelectorAll(".collapsible");
         for (const el of collapsible) {
-            el.style.setProperty("--hide-pos", "-" + (el.getBoundingClientRect().width) + "px");
             var button = el.querySelector(".collapse-tab");
             button.addEventListener("click", (e) => {
                 if (uncollapsed != null) {
@@ -1489,6 +1489,11 @@
                     el.classList.remove("collapsed");
                 }
             });
+        }
+        function setCollapsibleWidths() {
+            for (const el of collapsible) {
+                el.style.setProperty("--hide-pos", "-" + (el.getBoundingClientRect().width) + "px");
+            }
         }
 
     </script>
