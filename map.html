@@ -930,7 +930,7 @@
                             click: function (e) {
                                 if (warpData.destRegion != null && region.toLowerCase() != "sb") {
                                     region = warpData.destRegion.toUpperCase();
-                                    room = warpData.destRoom.toUpperCase();
+                                    room = warpData.destRoom?.toUpperCase();
                                     pushState();
                                 } else if (region.toLowerCase() == "wara") {
                                     region = "WAUA";
