@@ -421,12 +421,6 @@
                 } else if (!noNavigation) document.location.search = newstr;
                 if (!noNavigation) newState();
             }
-
-            if (region != region_param) {
-                for (let i = 0; i < slugcats.length; i++) {
-                    document.getElementById("scug-" + slugcats[i]).classList.toggle("hidden", regions[region]["slugcats"].indexOf(slugcats[i].toLowerCase()) == -1);
-                }
-            }
         }
         function newState() {
             //console.log("newState");
@@ -793,7 +787,7 @@
                                         tooltip += "🚿";
                                     }
 
-                                    var path = "./resources/creatures/" + spawn.lineage[i] + ".png";
+                                    var path = "./resources/creatures/" + spawn.lineage[i].toLowerCase() + ".png";
                                     if (spawn.lineage[i] == "") path = "./resources/none.png";
                                     divhtml += `<div class="lineage-entry">
                                         <img class="icon-image" src="${path}"/>
@@ -811,7 +805,7 @@
                                     tooltip += "🚿";
                                 }
                                 divhtml += `<div class="spawn-entry${spawn_filter}">
-                                    <img class="icon-image" src="./resources/creatures/${spawn.creature}.png"/>
+                                    <img class="icon-image" src="./resources/creatures/${spawn.creature.toLowerCase()}.png"/>
                                     <div class="icon-label">x${spawn.amount}</div>
                                     <div class="icon-tooltip">${tooltip}</div>
                                     </div>`;
@@ -918,7 +912,7 @@
                         if (warpData.destRegion != null) icon = warpData.destRegion.toLowerCase();
 
                         taghtml += "<div class=\"warppoint-filter\">";
-                        taghtml += `<img class="warppoint-image" src="./resources/warp/${icon}.png"/>`;
+                        if (warpData.destRegion != "sb") taghtml += `<img class="warppoint-image" src="./resources/warp/${icon}.png"/>`;
                         taghtml += "</div>";
 
                         return L.marker(latlng, {
@@ -934,9 +928,9 @@
                         let warpData = feature.properties;
                         layer.on({
                             click: function (e) {
-                                if (warpData.destRegion != null) {
+                                if (warpData.destRegion != null && region.toLowerCase() != "sb") {
                                     region = warpData.destRegion.toUpperCase();
-                                    room = warpData.destRoom;
+                                    room = warpData.destRoom.toUpperCase();
                                     pushState();
                                 } else if (region.toLowerCase() == "wara") {
                                     region = "WAUA";
