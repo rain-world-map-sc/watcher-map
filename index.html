@@ -59,11 +59,15 @@
             /* menu lightgray */
         }
 
+        .rw-title {
+            margin-top: min(20vw, 20vh);
+        }
+
         #regionlist {
             margin-left: auto;
             margin-right: auto;
-            margin-top: 0.8em;
-            margin-bottom: 0.8em;
+            margin-top: 1.6em;
+            margin-bottom: 1.6em;
             max-width: 90vw;
             
             display: grid;
@@ -93,7 +97,7 @@
 
 <body>
     <form id="main-menu" action="map.html" method="get">
-        <div class="rw-title">Rain World</div>
+        <div class="rw-title">Rain World: Watcher</div>
         <div class="rw-bigtext" style="text-align: center; margin-top:0.5em;">I'm lost in...</div>
         <div id="regionlist"></div>
 
@@ -102,6 +106,7 @@
             const gap = 4;
 
             function organizeColumns() {
+                return;
                 const buttons = document.getElementsByClassName("region-button");
                 let numRegions = buttons.length;
 
