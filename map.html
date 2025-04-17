@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rain World Map</title>
+    <title>Rain World Watcher Map</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <meta property="og:image" content="https://alduris.github.io/watcher-map/embed.png" />
@@ -420,6 +420,11 @@
                     window.history.pushState(null, '', window.location.pathname + '?' + newstr);
                 } else if (!noNavigation) document.location.search = newstr;
                 if (!noNavigation) newState();
+
+                const regionButtons = [... document.querySelectorAll("input[name='regions']")];
+                for (const btn of regionButtons) {
+                    btn.checked = (btn.value == region);
+                }
             }
         }
         function newState() {
@@ -453,7 +458,7 @@
             html += `
 <label>
     <div class="region-btn">
-        <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="${r}"${r == region ? ' checked' : ''} autocomplete = "off">
+        <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="${r}"${r == params.get("region") ? ' checked' : ''} autocomplete = "off">
         <span>${regions[r]["name"].toUpperCase()} (${r})</span>
     </div>
 </label>`
@@ -911,8 +916,12 @@
                         else if (region.toLowerCase() == "wara") icon = "waua";
                         if (warpData.destRegion != null) icon = warpData.destRegion.toLowerCase();
 
+                        let regionName = regions[icon.toUpperCase()];
+                        if (regionName != undefined) regionName = regionName["name"];
+                        else regionName = "Random warp";
+
                         taghtml += "<div class=\"warppoint-filter\">";
-                        if (warpData.destRegion != "sb") taghtml += `<img class="warppoint-image" src="./resources/warp/${icon}.png"/>`;
+                        if (warpData.destRegion != "sb") taghtml += `<img class="warppoint-image" src="./resources/warp/${icon}.png" title="${regionName}"/>`;
                         taghtml += "</div>";
 
                         return L.marker(latlng, {
