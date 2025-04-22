@@ -784,31 +784,43 @@
                                 // lineages are vertical stacks
                                 divhtml += '<div class="spawn-entry ' + spawn_filter + '">';
                                 for (let i = 0; i < spawn.lineage.length; i++) {
-                                    var tooltip = "";
-                                    if ((spawn.spawnData?.indexOf("Night") ?? -1) > -1) {
-                                        tooltip += "🌙";
-                                    }
-                                    if ((spawn.spawnData?.indexOf("PreCycle") ?? -1) > -1) {
-                                        tooltip += "🚿";
-                                    }
+                                    let tooltip = "";
+									if (spawn.spawn_data != null && spawn.spawn_data.length > 2) {
+										let spawndata = spawn.spawn_data.substring(1, spawn.spawn_data.length - 1).split(",").map(x => x.trim());
+										
+										if (spawndata.indexOf("Night") > -1) {
+											tooltip += "🌙";
+											spawndata.splice(spawndata.indexOf("Night"), 1);
+										}
+										if (spawndata.indexOf("PreCycle") > -1) {
+											tooltip += "🚿";
+											spawndata.splice(spawndata.indexOf("PreCycle"), 1);
+										}
+									}
 
                                     var path = "./resources/creatures/" + spawn.lineage[i].toLowerCase() + ".png";
                                     if (spawn.lineage[i] == "") path = "./resources/none.png";
                                     divhtml += `<div class="lineage-entry">
                                         <img class="icon-image" src="${path}"/>
-                                        <div class="icon-label">${Math.trunc(Number.parseFloat(spawn.lineage_probs[i]) * 100)}</div>
+                                        <div class="icon-label">${Math.trunc(Number.parseFloat(spawn.lineage_probs[i]) * 100)}%</div>
                                         <div class="icon-tooltip">${tooltip}</div>
                                         </div>`;
                                 }
                                 divhtml += '</div>';
                             } else {
-                                var tooltip = "";
-                                if (spawn.night) {
-                                    tooltip += "🌙";
-                                }
-                                if (spawn.pre_cycle) {
-                                    tooltip += "🚿";
-                                }
+                                let tooltip = "";
+								if (spawn.spawn_data != null && spawn.spawn_data.length > 2) {
+									let spawndata = spawn.spawn_data.substring(1, spawn.spawn_data.length - 1).split(",").map(x => x.trim());
+									
+									if (spawndata.indexOf("Night") > -1) {
+										tooltip += "🌙";
+										spawndata.splice(spawndata.indexOf("Night"), 1);
+									}
+									if (spawndata.indexOf("PreCycle") > -1) {
+										tooltip += "🚿";
+										spawndata.splice(spawndata.indexOf("PreCycle"), 1);
+									}
+								}
                                 divhtml += `<div class="spawn-entry${spawn_filter}">
                                     <img class="icon-image" src="./resources/creatures/${spawn.creature.toLowerCase()}.png"/>
                                     <div class="icon-label">x${spawn.amount}</div>
