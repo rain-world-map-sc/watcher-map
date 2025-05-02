@@ -931,7 +931,7 @@
 
                         let regionName = regions[icon.toUpperCase()];
                         if (regionName != undefined) regionName = regionName["name"];
-                        else regionName = "Random warp";
+                        else regionName = "随机传送";
 
                         taghtml += "<div class=\"warppoint-filter\">";
                         if (warpData.destRegion != "sb") taghtml += `<img class="warppoint-image" src="./resources/warp/${icon}.png" title="${regionName}"/>`;
@@ -968,7 +968,7 @@
                     }
                 });
                 if (hadWarpPoints) warpPointsLayer.addTo(map);
-                overlays.addOverlay(warpPointsLayer, "翘曲点");
+                overlays.addOverlay(warpPointsLayer, "传送通道");
 
                 // Room Tags
                 let hadRoomTags = map.hasLayer(roomTagsLayer) || loadedRegion == null;
@@ -1514,7 +1514,12 @@
         }
         function setCollapsibleWidths() {
             for (const el of collapsible) {
-                el.style.setProperty("--hide-pos", "-" + (el.getBoundingClientRect().width) + "px");
+                // 摆烂写死
+                if (el.classList.contains("left-panel")) {
+                    el.style.setProperty("--hide-pos", "-261.9959716796875px");
+                } else if (el.classList.contains("right-panel")) {
+                    el.style.setProperty("--hide-pos", "-181.9932861328125px");
+                }
             }
         }
 
