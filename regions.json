@@ -3,7 +3,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Industrial Complex",
+		"name": "工业区",
 		"specificNames": [
 			"Industrial Complex"
 		]
@@ -12,7 +12,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Outskirts",
+		"name": "郊区",
 		"specificNames": [
 			"Outskirts"
 		]
@@ -21,7 +21,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Chimney Canopy",
+		"name": "烟囱顶篷",
 		"specificNames": [
 			"Chimney Canopy"
 		]
@@ -30,7 +30,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Shaded Citadel",
+		"name": "阴影城堡",
 		"specificNames": [
 			"Shaded Citadel"
 		]
@@ -39,7 +39,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Farm Arrays",
+		"name": "农场阵列",
 		"specificNames": [
 			"Farm Arrays"
 		]
@@ -48,7 +48,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Badlands",
+		"name": "不毛之地",
 		"specificNames": [
 			"Badlands"
 		]
@@ -57,7 +57,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Signal Spires",
+		"name": "信号尖塔",
 		"specificNames": [
 			"Signal Spires"
 		]
@@ -66,7 +66,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Rusted Wrecks",
+		"name": "锈蚀残骸",
 		"specificNames": [
 			"Rusted Wrecks"
 		]
@@ -75,7 +75,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Torrid Desert",
+		"name": "炎热沙漠",
 		"specificNames": [
 			"Torrid Desert"
 		]
@@ -84,7 +84,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Desolate Tract",
+		"name": "凄凉地带",
 		"specificNames": [
 			"Desolate Tract"
 		]
@@ -93,7 +93,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Coral Caves",
+		"name": "珊瑚洞穴",
 		"specificNames": [
 			"Coral Caves"
 		]
@@ -102,7 +102,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Turbulent Pump",
+		"name": "涡流泵",
 		"specificNames": [
 			"Turbulent Pump"
 		]
@@ -111,7 +111,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Torrential Railways",
+		"name": "暴雨铁路",
 		"specificNames": [
 			"Torrential Railways"
 		]
@@ -120,7 +120,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Sunlit Port",
+		"name": "普照港",
 		"specificNames": [
 			"Sunlit Port"
 		]
@@ -129,7 +129,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Stormy Coast",
+		"name": "风暴海岸",
 		"specificNames": [
 			"Stormy Coast"
 		]
@@ -138,7 +138,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Shrouded Coast",
+		"name": "雾罩海岸",
 		"specificNames": [
 			"Shrouded Coast"
 		]
@@ -147,7 +147,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Verdant Waterways",
+		"name": "翠绿水道",
 		"specificNames": [
 			"Verdant Waterways"
 		]
@@ -156,7 +156,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Shattered Terrace",
+		"name": "破碎露台",
 		"specificNames": [
 			"Shattered Terrace"
 		]
@@ -165,7 +165,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Salination",
+		"name": "盐化区",
 		"specificNames": [
 			"Salination"
 		]
@@ -174,7 +174,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Fetid Glen",
+		"name": "腐臭幽谷",
 		"specificNames": [
 			"Fetid Glen"
 		]
@@ -183,7 +183,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Cold Storage",
+		"name": "冷库",
 		"specificNames": [
 			"Cold Storage"
 		]
@@ -192,7 +192,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Heat Ducts",
+		"name": "供热管道",
 		"specificNames": [
 			"Heat Ducts"
 		]
@@ -201,7 +201,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Aether Ridge",
+		"name": "以太山脊",
 		"specificNames": [
 			"Aether Ridge"
 		]
@@ -210,7 +210,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "The Surface",
+		"name": "表面",
 		"specificNames": [
 			"The Surface"
 		]
@@ -219,7 +219,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Ancient Urban",
+		"name": "上古城市",
 		"specificNames": [
 			"Ancient Urban"
 		]
@@ -228,7 +228,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Daemon",
+		"name": "恶魔",
 		"specificNames": [
 			"Daemon"
 		]
@@ -237,7 +237,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Unfortunate Evolution",
+		"name": "不幸演化",
 		"specificNames": [
 			"Unfortunate Evolution"
 		]
@@ -246,7 +246,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Crumbling Fringes",
+		"name": "欲坠边缘",
 		"specificNames": [
 			"Crumbling Fringes"
 		]
@@ -255,7 +255,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Corrupted Factories",
+		"name": "腐化工厂",
 		"specificNames": [
 			"Corrupted Factories"
 		]
@@ -264,7 +264,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Decaying Tunnels",
+		"name": "衰败隧道",
 		"specificNames": [
 			"Decaying Tunnels"
 		]
@@ -273,7 +273,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Infested Wastes",
+		"name": "受侵染的废土",
 		"specificNames": [
 			"Infested Wastes"
 		]
@@ -282,7 +282,7 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Outer Rim",
+		"name": "外缘",
 		"specificNames": [
 			"Outer Rim"
 		]

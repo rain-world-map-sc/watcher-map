@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rain World Watcher Map</title>
+    <title>雨世界观望者地图</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <meta property="og:image" content="https://alduris.github.io/watcher-map/embed.png" />
+    <meta property="og:image" content="https://rain-world-map-sc.github.io/watcher-map/embed.png" />
     <meta property="og:type" content="object" />
-    <meta property="og:title" content="Rain World Watcher Map" />
-    <meta property="og:url" content="https://alduris.github.io/watcher-map/" />
-    <meta property="og:description" content="An online interactive map for regions in the Rain World Watcher DLC." />
+    <meta property="og:title" content="雨世界观望者地图" />
+    <meta property="og:url" content="https://rain-world-map-sc.github.io/watcher-map/" />
+    <meta property="og:description" content="包含了雨世界观望者 DLC 中各地区的在线交互地图" />
     <link rel="stylesheet" href="./rw.css" />
     <link rel="stylesheet" href="./leaflet/leaflet.css" />
 
@@ -238,7 +238,7 @@
             color: #999;
         }
 
-        input[type='radio'].rw-ui + span {
+        input[type='radio'].rw-ui+span {
             top: calc(50% - 10px);
             /* proof that CSS is stupid, cant fucking vertical center text */
         }
@@ -274,6 +274,7 @@
             .side-panel {
                 transition: left ease 0.3s, right ease 0.3s;
             }
+
             .collapse-tab {
                 display: block;
                 cursor: pointer;
@@ -339,9 +340,9 @@
 
     <div class="side-panel left-panel rw-text collapsible collapsed">
         <div style="padding-left: 8px; padding-bottom: 8px;">
-            <a href="./" class="rw-text">&lt; Back to Index</a>
+            <a href="./" class="rw-text">&lt; 返回索引</a>
             <hr />
-            <span>Regions</span>
+            <span>区域</span>
         </div>
 
         <form name="regionselect" id="region-select" class="scroll-ish"></form>
@@ -350,7 +351,7 @@
     </div>
 
     <div class="side-panel right-panel rw-text collapsible collapsed">
-        <div>Layers</div>
+        <div>图层</div>
         <div id="layer-content" class="scroll-ish"></div>
 
         <div class="collapse-tab"></div>
@@ -421,7 +422,7 @@
                 } else if (!noNavigation) document.location.search = newstr;
                 if (!noNavigation) newState();
 
-                const regionButtons = [... document.querySelectorAll("input[name='regions']")];
+                const regionButtons = [...document.querySelectorAll("input[name='regions']")];
                 for (const btn of regionButtons) {
                     btn.checked = (btn.value == region);
                 }
@@ -464,7 +465,7 @@
 </label>`
             document.getElementById('region-select').innerHTML = html;
         }
-        
+
         html = "";
 
         function selectRegion(value) {
@@ -594,7 +595,7 @@
             crs: L.CRS.Simple,
             zoomControl: false,
         });
-        map.attributionControl.setPrefix('Powered by <a href="https://leafletjs.com" target="_blank" title="A JS library for interactive maps">Leaflet</a>, <a href="https://github.com/henpemaz" target="_blank" title="Gamedev &amp; associated arts enthusiast">Henpemaz</a>, &amp; <a href="https://github.com/alduris" target="_blank" title="Fox enthusiast and sometimes a programmer">Alduris</a>')
+        map.attributionControl.setPrefix('基于 <a href="https://leafletjs.com" target="_blank" title="一个用于交互式地图的JS库">Leaflet</a>, <a href="https://github.com/henpemaz" target="_blank" title="游戏开发者 &amp; 相关艺术爱好者">Henpemaz</a>, &amp; <a href="https://github.com/alduris" target="_blank" title="🦊狐狸爱好者，有时是程序员">Alduris</a>')
         map.setView([0, 0], -5);
 
         // Events
@@ -689,7 +690,7 @@
                 // Tileset layer
                 if (tileLayer != null) map.removeLayer(tileLayer);
                 tileLayer = L.tileLayer(`${roompath}/{z}/{x}_{y}.png`, {
-                    attribution: "<a href=\"https://store.steampowered.com/app/312520/Rain_World/\">Rain World</a> by <a href=\"https://twitter.com/VideocultMedia\">Videocult</a>",
+                    attribution: "<a href=\"https://store.steampowered.com/app/312520/Rain_World/\">Rain World</a> 由 <a href=\"https://twitter.com/VideocultMedia\">Videocult</a> 制作",
                     minZoom: -7,
                     maxZoom: 3,
                     maxNativeZoom: 0, // important, stop requesting tiles at this point
@@ -732,9 +733,9 @@
                     }
                 });
                 if (hadRooms) roomsLayer.addTo(map);
-                overlays.addOverlay(roomsLayer, "Rooms");
+                overlays.addOverlay(roomsLayer, "房间聚焦");
                 if (hadNames) roomNames.addTo(map);
-                overlays.addOverlay(roomNames, "Room Names");
+                overlays.addOverlay(roomNames, "房间名称");
 
                 // Connections
                 let hadConnections = map.hasLayer(connectionsLayer) || loadedRegion == null;
@@ -750,7 +751,7 @@
                     interactive: false,
                 });
                 if (hadConnections) connectionsLayer.addTo(map);
-                overlays.addOverlay(connectionsLayer, "Connections");
+                overlays.addOverlay(connectionsLayer, "管道连接");
 
                 // Geometry
                 let hadGeometry = map.hasLayer(geometryLayer) || loadedRegion == null;
@@ -766,7 +767,7 @@
                     lineJoin: "miter",
                 });
                 if (hadGeometry) geometryLayer.addTo(map);
-                overlays.addOverlay(geometryLayer, "Geometry");
+                overlays.addOverlay(geometryLayer, "房间轮廓");
 
                 // Spawns
                 let hadSpawns = map.hasLayer(densLayer) || loadedRegion == null;
@@ -785,18 +786,18 @@
                                 divhtml += '<div class="spawn-entry ' + spawn_filter + '">';
                                 for (let i = 0; i < spawn.lineage.length; i++) {
                                     let tooltip = "";
-									if (spawn.spawn_data != null && spawn.spawn_data.length > 2) {
-										let spawndata = spawn.spawn_data.substring(1, spawn.spawn_data.length - 1).split(",").map(x => x.trim());
-										
-										if (spawndata.indexOf("Night") > -1) {
-											tooltip += "🌙";
-											spawndata.splice(spawndata.indexOf("Night"), 1);
-										}
-										if (spawndata.indexOf("PreCycle") > -1) {
-											tooltip += "🚿";
-											spawndata.splice(spawndata.indexOf("PreCycle"), 1);
-										}
-									}
+                                    if (spawn.spawn_data != null && spawn.spawn_data.length > 2) {
+                                        let spawndata = spawn.spawn_data.substring(1, spawn.spawn_data.length - 1).split(",").map(x => x.trim());
+
+                                        if (spawndata.indexOf("Night") > -1) {
+                                            tooltip += "🌙";
+                                            spawndata.splice(spawndata.indexOf("Night"), 1);
+                                        }
+                                        if (spawndata.indexOf("PreCycle") > -1) {
+                                            tooltip += "🚿";
+                                            spawndata.splice(spawndata.indexOf("PreCycle"), 1);
+                                        }
+                                    }
 
                                     var path = "./resources/creatures/" + spawn.lineage[i].toLowerCase() + ".png";
                                     if (spawn.lineage[i] == "") path = "./resources/none.png";
@@ -809,18 +810,18 @@
                                 divhtml += '</div>';
                             } else {
                                 let tooltip = "";
-								if (spawn.spawn_data != null && spawn.spawn_data.length > 2) {
-									let spawndata = spawn.spawn_data.substring(1, spawn.spawn_data.length - 1).split(",").map(x => x.trim());
-									
-									if (spawndata.indexOf("Night") > -1) {
-										tooltip += "🌙";
-										spawndata.splice(spawndata.indexOf("Night"), 1);
-									}
-									if (spawndata.indexOf("PreCycle") > -1) {
-										tooltip += "🚿";
-										spawndata.splice(spawndata.indexOf("PreCycle"), 1);
-									}
-								}
+                                if (spawn.spawn_data != null && spawn.spawn_data.length > 2) {
+                                    let spawndata = spawn.spawn_data.substring(1, spawn.spawn_data.length - 1).split(",").map(x => x.trim());
+
+                                    if (spawndata.indexOf("Night") > -1) {
+                                        tooltip += "🌙";
+                                        spawndata.splice(spawndata.indexOf("Night"), 1);
+                                    }
+                                    if (spawndata.indexOf("PreCycle") > -1) {
+                                        tooltip += "🚿";
+                                        spawndata.splice(spawndata.indexOf("PreCycle"), 1);
+                                    }
+                                }
                                 divhtml += `<div class="spawn-entry${spawn_filter}">
                                     <img class="icon-image" src="./resources/creatures/${spawn.creature.toLowerCase()}.png"/>
                                     <div class="icon-label">x${spawn.amount}</div>
@@ -838,7 +839,7 @@
                     },
                 });
                 if (hadSpawns) densLayer.addTo(map);
-                overlays.addOverlay(densLayer, "Spawns");
+                overlays.addOverlay(densLayer, "生物生成");
 
                 // Placed Objects
                 let hadPlacedObjects = map.hasLayer(placedObjectsLayer) || loadedRegion == null;
@@ -910,7 +911,7 @@
                     },
                 });
                 if (hadPlacedObjects) placedObjectsLayer.addTo(map);
-                overlays.addOverlay(placedObjectsLayer, "Placed Objects");
+                overlays.addOverlay(placedObjectsLayer, "放置物品");
 
                 // Warp points
                 let hadWarpPoints = map.hasLayer(warpPointsLayer) || loadedRegion == null;
@@ -967,7 +968,7 @@
                     }
                 });
                 if (hadWarpPoints) warpPointsLayer.addTo(map);
-                overlays.addOverlay(warpPointsLayer, "Warp Points");
+                overlays.addOverlay(warpPointsLayer, "翘曲点");
 
                 // Room Tags
                 let hadRoomTags = map.hasLayer(roomTagsLayer) || loadedRegion == null;
@@ -1033,7 +1034,7 @@
                     },
                 });
                 if (hadRoomTags) roomTagsLayer.addTo(map);
-                overlays.addOverlay(roomTagsLayer, "Room Tags");
+                overlays.addOverlay(roomTagsLayer, "房间标签");
 
                 // Zoom to room on rooms loaded
                 let foundRoom = false;

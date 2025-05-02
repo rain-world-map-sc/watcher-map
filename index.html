@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rain World Watcher Map</title>
+    <title>雨世界观望者地图</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <meta property="og:image" content="https://alduris.github.io/watcher-map/embed.png" />
+    <meta property="og:image" content="https://rain-world-map-sc.github.io/watcher-map/embed.png" />
     <meta property="og:type" content="object" />
-    <meta property="og:title" content="Rain World Watcher Map" />
-    <meta property="og:url" content="https://alduris.github.io/watcher-map/" />
-    <meta property="og:description" content="An online interactive map for regions in the Rain World Watcher DLC." />
+    <meta property="og:title" content="雨世界观望者地图" />
+    <meta property="og:url" content="https://rain-world-map-sc.github.io/watcher-map/" />
+    <meta property="og:description" content="包含了雨世界观望者 DLC 中各地区的在线交互地图." />
     <link rel="stylesheet" href="./rw.css" />
 
     <script src="./global.js"></script>
@@ -69,7 +69,7 @@
             margin-top: 1.6em;
             margin-bottom: 1.6em;
             max-width: 90vw;
-            
+
             display: grid;
             grid-template-columns: repeat(var(--cols), auto);
             justify-items: center;
@@ -90,7 +90,6 @@
             margin: 4px;
             position: relative;
         }
-
     </style>
 
 </head>
@@ -98,7 +97,7 @@
 <body>
     <form id="main-menu" action="map.html" method="get">
         <div class="rw-title">Rain World: Watcher</div>
-        <div class="rw-bigtext" style="text-align: center; margin-top:0.5em;">I'm lost in...</div>
+        <div class="rw-bigtext" style="text-align: center; margin-top:0.8em;">我迷路了…</div>
         <div id="regionlist"></div>
 
         <script>
@@ -139,7 +138,7 @@ Ideal number of columns: ${idealColumns}`);
             }
             window.addEventListener("resize", () => organizeColumns());
 
-            getJsonObject("regions.json", function(json) {
+            getJsonObject("regions.json", function (json) {
                 console.log(json);
                 regions = json;
                 let html = "";
@@ -151,13 +150,15 @@ Ideal number of columns: ${idealColumns}`);
             }, true);
         </script>
     </form>
-    <div id="main-menu-footer">Code on <a href="https://github.com/alduris/MapExporter">GitHub</a> |
-		<a href="https://henpemaz.github.io/Rain-World-Interactive-Map/" target="_blank">Original</a> by <a href="https://github.com/henpemaz/" target="_blank">Henpemaz</a> |
-		Ported by <a href="https://github.com/Dual-Iron/" target="_blank">Dual</a> |
-		Refined by <a href="https://github.com/NobleCat57/" target="_blank">JuliaCat</a> |
-		Current version by <a href="https://github.com/alduris/" target="_blank">Alduris</a> |
-		Embed preview by <a href="https://github.com/MagicaJaphet" target="_blank">MagicaJaphet</a> |
-		<a href="https://store.steampowered.com/app/312520/Rain_World/" target="_blank">Rain World</a> is property of <a href="https://twitter.com/VideocultMedia" target="_blank">Videocult</a>
+    <div id="main-menu-footer"><a href="https://github.com/alduris/MapExporter">GitHub</a> 上的代码 |
+        <a href="https://henpemaz.github.io/Rain-World-Interactive-Map/" target="_blank"> 最初 </a>
+        由 <a href="https://github.com/henpemaz/" target="_blank">Henpemaz</a> 制作 |
+        由 <a href="https://github.com/Dual-Iron/" target="_blank">Dual</a> 移植 |
+        由 <a href="https://github.com/NobleCat57/" target="_blank">JuliaCat</a> 改良 |
+        当前为 <a href="https://github.com/alduris/" target="_blank">Alduris</a> 版本 |
+        预览图片由 <a href="https://github.com/MagicaJaphet" target="_blank">MagicaJaphet</a> 绘制 |
+        <a href="https://store.steampowered.com/app/312520/Rain_World/" target="_blank">Rain World</a> 是 <a
+            href="https://twitter.com/VideocultMedia" target="_blank">Videocult</a> 的财产
     </div>
 </body>
 
