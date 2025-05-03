@@ -40,7 +40,7 @@
 
         /* stuck to the bottom, custom link colors */
         #main-menu-footer {
-            margin-bottom: 0.1em;
+            margin-bottom: 1rem;
             text-align: center;
             font-family: var(--font-body);
             font-size: 0.8em;
@@ -60,7 +60,7 @@
         }
 
         .rw-title {
-            margin-top: min(20vw, 20vh);
+            margin-top: min(10vw, 10vh);
         }
 
         #regionlist {
@@ -73,8 +73,29 @@
             display: grid;
             grid-template-columns: repeat(var(--cols), auto);
             justify-items: center;
-            gap: 4px;
+            gap: 16px;
         }
+
+        details.rw-ui {
+            border-radius: 8px;
+            border: 2px solid white;
+            width: calc(var(--region-btn-width) + 12px);
+        }
+        details.rw-ui > summary {
+            background: white;
+            color: black;
+            padding: 4px 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+        .region-sublist {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            padding: 6px;
+        }
+
 
         button.region-button {
             position: relative;
@@ -91,6 +112,12 @@
             position: relative;
         }
 
+
+        @media screen and (max-width: 640px) {
+            button.region-button {
+                height: 32px;
+            }
+        }
     </style>
 
 </head>
@@ -99,7 +126,70 @@
     <form id="main-menu" action="map.html" method="get">
         <div class="rw-title">Rain World: Watcher</div>
         <div class="rw-bigtext" style="text-align: center; margin-top:0.5em;">I'm lost in...</div>
-        <div id="regionlist"></div>
+        <div id="regionlist">
+            <details open class="rw-ui">
+                <summary>VANILLA REGIONS</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="HI">INDUSTRIAL COMPLEX (HI)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="SU">OUTSKIRTS (SU)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="CC">CHIMNEY CANOPY (CC)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="SH">SHADED CITADEL (SH)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="LF">FARM ARRAYS (LF)</button>
+                </div>
+            </details>
+            <details open class="rw-ui">
+                <summary>STANDALONE REGIONS</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="WBLA">BADLANDS (WBLA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WTDB">DESOLATE TRACT (WTDB)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WRRA">RUSTED WRECKS (WRRA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WPTA">SIGNAL SPIRES (WPTA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WTDA">TORRID DESERT (WTDA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WVWA">VERDANT WATERWAYS (WVWA)</button>
+                </div>
+            </details>
+            <details open class="rw-ui">
+                <summary>MOD REGIONS</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="WRFA">CORAL CAVES (WRFA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WRFB">TURBULENT PUMP (WRFB)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSKA">TORRENTIAL RAILWAYS (WSKA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSKB">SUNLIT PORT (WSKB)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSKC">STORMY COAST (WSKC)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSKD">SHROUDED COAST (WSKD)</button>
+                </div>
+            </details>
+            <details open class="rw-ui">
+                <summary>AETHER RIDGE REGIONS</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="WARF">AETHER RIDGE (WARF)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARD">COLD STORAGE (WARD)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARC">FETID GLEN (WARC)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARE">HEAT DUCTS (WARE)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARB">SALINATION (WARB)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARG">THE SURFACE (WARG)</button>
+                </div>
+            </details>
+            <details open class="rw-ui">
+                <summary>RIPPLE REGIONS</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="WARA">SHATTERED TERRACE (WARA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WRSA">DAEMON (WRSA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WAUA">ANCIENT URBAN (WAUA)</button>
+                </div>
+            </details>
+            <details open class="rw-ui">
+                <summary>ROTIFIED REGIONS</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="WHIR">CORRUPTED FACTORIES (WHIR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSUR">CRUMBLING FRINGES (WSUR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WDSR">DECAYING TUNNELS (WDSR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WGWR">INFESTED WASTES (WGWR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSSR">UNFORTUNATE EVOLUTION (WSSR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WORA">OUTER RIM (WORA)</button>
+                </div>
+            </details>
+        </div>
 
         <script>
             let regions = {};
@@ -139,7 +229,7 @@ Ideal number of columns: ${idealColumns}`);
             }
             window.addEventListener("resize", () => organizeColumns());
 
-            getJsonObject("regions.json", function(json) {
+            /*getJsonObject("regions.json", function(json) {
                 console.log(json);
                 regions = json;
                 let html = "";
@@ -147,8 +237,8 @@ Ideal number of columns: ${idealColumns}`);
                     html += '<button class="region-button rw-ui rw-text" name="region" value="' + r + '">' + regions[r]["name"].toUpperCase() + ' (' + r + ')</button>';
                 }
                 document.getElementById('regionlist').innerHTML = html;
-                organizeColumns();
-            }, true);
+            }, true);*/
+            organizeColumns();
         </script>
     </form>
     <div id="main-menu-footer">Code on <a href="https://github.com/alduris/MapExporter">GitHub</a> |
