@@ -323,3 +323,8 @@ input[type='checkbox'].rw-ui-ckb:active+label {
 }
 
 /* RW UI END */
+
+/* STOP ANTIALIASING */
+img {
+    image-rendering: pixelated;
+}
