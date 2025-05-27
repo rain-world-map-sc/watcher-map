@@ -375,7 +375,7 @@
     <div class="side-panel left-panel rw-text collapsible collapsed">
         <div style="padding-left: 8px; padding-bottom: 8px;">
             <a href="./" class="rw-text">&lt; Back to Index</a>
-            <hr />
+            <hr>
             <span>Regions</span>
         </div>
 
@@ -574,7 +574,7 @@
                     </label>
                     <label>
                         <div class="region-btn">
-                            <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="WGWR" checked="" autocomplete="off">
+                            <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="WGWR" autocomplete="off">
                             <span>INFESTED WASTES (WGWR)</span>
                         </div>
                     </label>
@@ -1349,6 +1349,12 @@
                 if (loadedCount == 1) {
                     map.removeLayer(roomTagsLayer);
                     setCollapsibleWidths();
+
+                    // Also check the radio button
+                    const regionButtons = [... document.querySelectorAll("input[name='regions']")];
+                    for (const btn of regionButtons) {
+                        btn.checked = (btn.value == region);
+                    }
                 }
                 loadedCount++;
             }, true);
@@ -1801,7 +1807,6 @@
                 el.style.setProperty("--hide-pos", "-" + (el.getBoundingClientRect().width) + "px");
             }
         }
-
     </script>
 </body>
 
