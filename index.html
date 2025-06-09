@@ -7,6 +7,9 @@
     <title>雨世界观望者地图</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
+    <meta name="description" content="雨世界观望着DLC 中各地区的在线互动地图。">
+    <meta name="keywords" content="雨世界地图, 雨世界观望者地图, 雨世界守望者地图, rain world map, rain world watcher, rain world watcher map, rain world watcher regions">
+
     <meta property="og:image" content="https://rain-world-map-sc.github.io/watcher-map/embed.png" />
     <meta property="og:type" content="object" />
     <meta property="og:title" content="雨世界观望者地图" />
@@ -40,7 +43,7 @@
 
         /* stuck to the bottom, custom link colors */
         #main-menu-footer {
-            margin-bottom: 0.1em;
+            margin-bottom: 1rem;
             text-align: center;
             font-family: var(--font-body);
             font-size: 0.8em;
@@ -60,7 +63,7 @@
         }
 
         .rw-title {
-            margin-top: min(20vw, 20vh);
+            margin-top: min(10vw, 10vh);
         }
 
         #regionlist {
@@ -73,8 +76,31 @@
             display: grid;
             grid-template-columns: repeat(var(--cols), auto);
             justify-items: center;
-            gap: 4px;
+            gap: 16px;
         }
+
+        details.rw-ui {
+            border-radius: 8px;
+            border: 2px solid white;
+            width: calc(var(--region-btn-width) + 12px);
+        }
+
+        details.rw-ui>summary {
+            background: white;
+            color: black;
+            padding: 4px 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .region-sublist {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            padding: 6px;
+        }
+
 
         button.region-button {
             position: relative;
@@ -90,6 +116,13 @@
             margin: 4px;
             position: relative;
         }
+
+
+        @media screen and (max-width: 640px) {
+            button.region-button {
+                height: 32px;
+            }
+        }
     </style>
 
 </head>
@@ -97,8 +130,61 @@
 <body>
     <form id="main-menu" action="map.html" method="get">
         <div class="rw-title">Rain World: Watcher</div>
-        <div class="rw-bigtext" style="text-align: center; margin-top:0.8em;">我迷路了…</div>
-        <div id="regionlist"></div>
+        <div class="rw-bigtext" style="text-align: center; margin-top:0.5em;">I'm lost in...</div>
+        <div id="regionlist">
+            <details open class="rw-ui">
+                <summary>序言区域</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="HI">工业区 (HI)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="SU">郊区 (SU)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="CC">烟囱顶篷 (CC)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="SH">阴影城堡 (SH)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="LF">农场阵列 (LF)</button>
+                </div>
+            </details>
+            <details open class="rw-ui">
+                <summary>活动区域</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="WARF">以太山脊 (WARF)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WBLA">不毛之地 (WBLA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARD">冷库 (WARD)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WRFA">珊瑚洞穴 (WRFA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WTDB">凄凉地带 (WTDB)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARC">腐臭幽谷 (WARC)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARE">供热管道 (WARE)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WRRA">锈蚀残骸 (WRRA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARB">盐化区 (WARB)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSKD">雾罩海岸 (WSKD)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WPTA">信号尖塔 (WPTA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSKC">风暴海岸 (WSKC)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSKB">普照港 (WSKB)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WARG">表面 (WARG)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSKA">暴雨铁路 (WSKA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WTDA">炎热沙漠 (WTDA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WRFB">涡流泵 (WRFB)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WVWA">翠绿水道 (WVWA)</button>
+                </div>
+            </details>
+            <details open class="rw-ui">
+                <summary>腐化免疫区域</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="WARA">破碎露台 (WARA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WRSA">恶魔 (WRSA)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WAUA">上古城市 (WAUA)</button>
+                </div>
+            </details>
+            <details open class="rw-ui">
+                <summary>腐化区域</summary>
+                <div class="region-sublist">
+                    <button class="region-button rw-ui rw-text" name="region" value="WHIR">腐化工厂 (WHIR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSUR">欲坠边缘 (WSUR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WDSR">衰败隧道 (WDSR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WGWR">受侵染的废土 (WGWR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WSSR">不幸演化 (WSSR)</button>
+                    <button class="region-button rw-ui rw-text" name="region" value="WORA">外缘（观望者） (WORA)</button>
+                </div>
+            </details>
+        </div>
 
         <script>
             let regions = {};
@@ -138,7 +224,7 @@ Ideal number of columns: ${idealColumns}`);
             }
             window.addEventListener("resize", () => organizeColumns());
 
-            getJsonObject("regions.json", function (json) {
+            /*getJsonObject("regions.json", function(json) {
                 console.log(json);
                 regions = json;
                 let html = "";
@@ -146,8 +232,8 @@ Ideal number of columns: ${idealColumns}`);
                     html += '<button class="region-button rw-ui rw-text" name="region" value="' + r + '">' + regions[r]["name"].toUpperCase() + ' (' + r + ')</button>';
                 }
                 document.getElementById('regionlist').innerHTML = html;
-                organizeColumns();
-            }, true);
+            }, true);*/
+            organizeColumns();
         </script>
     </form>
     <div id="main-menu-footer"><a href="https://github.com/alduris/MapExporter">GitHub</a> 上的代码 |
