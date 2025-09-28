@@ -115,6 +115,12 @@
             margin-top: -25px;
         }
 
+        .rse-image {
+            position: absolute;
+            margin-left: -25px;
+            margin-top: -25px;
+        }
+
         .roomtag-entry {
             display: none;
             /* to be overwritten */
@@ -365,6 +371,10 @@
         .warppoint-filter {
             display: initial
         }
+
+        .rse-filter {
+            display: initial
+        }
     </style>
 
     <style id="hoverlabels">
@@ -473,9 +483,27 @@
                     </label>
                     <label>
                         <div class="region-btn">
+                            <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="WVWB" autocomplete="off">
+                            <span>断裂通道 (WVWB)</span>
+                        </div>
+                    </label>
+                    <label>
+                        <div class="region-btn">
                             <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);"
                                 value="WARE" autocomplete="off">
                             <span>供热管道 (WARE)</span>
+                        </div>
+                    </label>
+                    <label>
+                        <div class="region-btn">
+                            <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="WMPA" autocomplete="off">
+                            <span>迁徙之路 (WMPA)</span>
+                        </div>
+                    </label>
+                    <label>
+                        <div class="region-btn">
+                            <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="WPGA" autocomplete="off">
+                            <span>柱林 (WPGA)</span>
                         </div>
                     </label>
                     <label>
@@ -494,9 +522,8 @@
                     </label>
                     <label>
                         <div class="region-btn">
-                            <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);"
-                                value="WSKD" autocomplete="off">
-                            <span>雾罩海岸 (WSKD)</span>
+                            <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);" value="WSKD" autocomplete="off">
+                            <span>隐蔽堆层 (WSKD)</span>
                         </div>
                     </label>
                     <label>
@@ -517,7 +544,7 @@
                         <div class="region-btn">
                             <input type="radio" class="rw-ui" name="regions" onclick="selectRegion(this.value);"
                                 value="WSKB" autocomplete="off">
-                            <span>普照港 (WSKB)</span>
+                            <span>烈日港 (WSKB)</span>
                         </div>
                     </label>
                     <label>
@@ -922,6 +949,7 @@
         var placedObjectsLayer;
         var roomTagsLayer;
         var warpPointsLayer;
+        var rippleEggsLayer;
         var loadedDifficulty = null;
         var loadedRegion = null;
         var rottedRegions = ["wora", "wsur", "whir", "wgwr", "wdsr"];
@@ -1073,7 +1101,7 @@
                                     let tooltip = "";
                                     let rottype = 0;
                                     if (spawn.lineage_data != null && spawn.lineage_data[i] != null && spawn.lineage_data[i].length > 2) {
-                                        let spawndata = spawn.lineage_data[i].substring(1, spawn.lineage_data[i].length - 1).split(",").map(x => x.trim()).filter(x => isNaN(x));
+                                        let spawndata = spawn.lineage_data[i].substring(1, spawn.lineage_data[i].length - 1).split("|").map(x => x.trim()).filter(x => isNaN(x));
 
                                         if (spawndata.indexOf("Night") > -1) {
                                             tooltip += "🌙";
@@ -1082,6 +1110,10 @@
                                         if (spawndata.indexOf("PreCycle") > -1) {
                                             tooltip += "🚿";
                                             spawndata.splice(spawndata.indexOf("PreCycle"), 1);
+                                        }
+                                        if (spawndata.indexOf("Winter") > -1) {
+                                            tooltip += "❄️";
+                                            spawndata.splice(spawndata.indexOf("Winter"), 1);
                                         }
                                         if (spawndata.findIndex(x => x.startsWith("RotType")) > -1) {
                                             let rotflag = spawndata.find(x => x.startsWith("RotType"));
@@ -1096,16 +1128,19 @@
                                             }
                                             // spawndata.splice(spawndata.findIndex(x => x.startsWith("RotType")), 1);
                                         }
+                                        if (spawndata.findIndex(x => x.startsWith("NamedAttr")) > -1) {
+                                            spawndata.splice(spawndata.findIndex(x => x.startsWith("NamedAttr")));
+                                        }
                                         if (tooltip.length > 0) tooltip += ", ";
                                         tooltip += spawndata.join(", ");
                                     }
 
                                     let icon = spawn.lineage[i].toLowerCase();
                                     if (rottype > 0) icon = icon + "_" + rottype;
-                                    let path = "./resources/creatures/" + icon + ".png";
+                                    let path = "./resources/icons/" + icon + ".png";
                                     if (spawn.lineage[i] == "") path = "./resources/none.png";
                                     divhtml += `<div class="lineage-entry${rottype > 0 ? " tall" : ""}">
-                                        <img class="icon-image" src="${path}" onerror="this.onerror=null; this.src="./resources/unknown.png"/>
+                                        <img class="icon-image" src="${path}"/>
                                         <div class="icon-label">${Math.trunc(Number.parseFloat(spawn.lineage_probs[i]) * 100)}%</div>
                                         <div class="icon-tooltip">${tooltip}</div>
                                         </div>`;
@@ -1114,8 +1149,9 @@
                             } else {
                                 let tooltip = "";
                                 let rottype = 0;
+                                let altform = false;
                                 if (spawn.spawn_data != null && spawn.spawn_data.length > 2) {
-                                    let spawndata = spawn.spawn_data.substring(1, spawn.spawn_data.length - 1).split(",").map(x => x.trim()).filter(x => isNaN(x));
+                                    let spawndata = spawn.spawn_data.substring(1, spawn.spawn_data.length - 1).split("|").map(x => x.trim()).filter(x => isNaN(x));
 
                                     if (spawndata.indexOf("Night") > -1) {
                                         tooltip += "🌙";
@@ -1124,6 +1160,10 @@
                                     if (spawndata.indexOf("PreCycle") > -1) {
                                         tooltip += "🚿";
                                         spawndata.splice(spawndata.indexOf("PreCycle"), 1);
+                                    }
+                                    if (spawndata.indexOf("Winter") > -1) {
+                                        tooltip += "❄️";
+                                        spawndata.splice(spawndata.indexOf("Winter"), 1);
                                     }
                                     if (spawndata.findIndex(x => x.startsWith("RotType")) > -1) {
                                         let rotflag = spawndata.find(x => x.startsWith("RotType"));
@@ -1138,14 +1178,22 @@
                                         }
                                         // spawndata.splice(spawndata.findIndex(x => x.startsWith("RotType")), 1);
                                     }
+                                    if (spawndata.findIndex(x => x.startsWith("NamedAttr")) > -1) {
+                                        spawndata.splice(spawndata.findIndex(x => x.startsWith("NamedAttr")), 1);
+                                    }
+                                    if (spawndata.indexOf("AlternateForm") > -1) {
+                                        altform = true;
+                                        spawndata.splice(spawndata.indexOf("AlternateForm"), 1);
+                                    }
                                     if (tooltip.length > 0) tooltip += ", ";
                                     tooltip += spawndata.join(", ");
                                 }
                                 let icon = spawn.creature.toLowerCase();
+                                if (altform && icon == "skywhale") icon = "altskywhale";
                                 if (rottype > 0) icon = icon + "_" + rottype;
-                                let path = "./resources/creatures/" + icon + ".png";
+                                let path = "./resources/icons/" + icon + ".png";
                                 divhtml += `<div class="spawn-entry${spawn_filter}">
-                                    <img class="icon-image" src="${path}" onerror="this.onerror=null; this.src="./resources/unknown.png"/>
+                                    <img class="icon-image" src="${path}"/>
                                     <div class="icon-label">x${spawn.amount}</div>
                                     <div class="icon-tooltip">${tooltip}</div>
                                     </div>`;
@@ -1184,7 +1232,7 @@
                         }
 
                         // Data!
-                        let icon = "./resources/objects/" + object.toLowerCase() + ".png";
+                        let icon = "./resources/icons/" + object.toLowerCase() + ".png";
                         let tooltip = "";
                         let display = true;
 
@@ -1247,7 +1295,8 @@
                         let warpData = feature.properties;
 
                         let icon = "wrsa";
-                        if (rottedRegions.indexOf(region.toLowerCase()) > -1) icon = "unknown";
+                        if (region.toLowerCase() == "wora") icon = "unknown";
+                        else if (rottedRegions.indexOf(region.toLowerCase()) > -1) icon = "wora";
                         else if (region.toLowerCase() == "wara") icon = "waua";
                         if (warpData.destRegion != null) icon = warpData.destRegion.toLowerCase();
 
@@ -1291,6 +1340,41 @@
                 });
                 if (hadWarpPoints) warpPointsLayer.addTo(map);
                 overlays.addOverlay(warpPointsLayer, "传送通道");
+
+                // Ripple spawn eggs
+                let hadRippleEggs = map.hasLayer(rippleEggsLayer) || loadedRegion == null;
+                if (rippleEggsLayer != null) {
+                    overlays.removeLayer(rippleEggsLayer);
+                    map.removeLayer(rippleEggsLayer);
+                }
+                rippleEggsLayer = L.geoJSON(json["ripplespawnegg_features"], {
+                    pointToLayer: function (feature, latlng) {
+                        let objecthtml = "";
+                        let object = feature.properties.object;
+                        let data = feature.properties.settings;
+
+                        // Data!
+                        let icon = "./resources/icons/ripplespawnegg.png";
+                        let tooltip = "";
+                        let display = true;
+
+                        // The resulting HTML
+                        objecthtml += `<div class="rse-entry">
+                                    <img class="rse-image" src="${icon}"/>
+                                    <div class="rse-tooltip">${tooltip}</div>
+                                    </div>`;
+
+                        return L.marker(latlng, {
+                            icon: L.divIcon({
+                                className: 'rse-divs',
+                                html: objecthtml,
+                            }),
+                            interactive: false,
+                        });
+                    }
+                });
+                if (hadRippleEggs) rippleEggsLayer.addTo(map);
+                overlays.addOverlay(rippleEggsLayer, "虚空卵");
 
                 // Room Tags
                 let hadRoomTags = map.hasLayer(roomTagsLayer) || loadedRegion == null;
@@ -1386,6 +1470,7 @@
                 // Don't enable certain layers when loaded for the first time
                 if (loadedCount == 1) {
                     map.removeLayer(roomTagsLayer);
+                    map.removeLayer(rippleEggsLayer);
                     setCollapsibleWidths();
 
                     // Also check the radio button
