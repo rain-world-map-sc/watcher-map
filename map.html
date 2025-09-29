@@ -1229,6 +1229,8 @@
                         if (rules != undefined && "use" in rules) {
                             console.log("Using " + rules["use"] + " for object " + object);
                             object = rules["use"];
+							rules = poRules[object];
+							rules ??= poRules[object.toLowerCase()];
                         }
 
                         // Data!
