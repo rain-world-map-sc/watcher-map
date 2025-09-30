@@ -120,9 +120,9 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Sunlit Port",
+		"name": "Sunbaked Alley",
 		"specificNames": [
-			"Sunlit Port"
+			"Sunbaked Alley"
 		]
 	},
 	"WSKC": {
@@ -138,9 +138,9 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "Shrouded Coast",
+		"name": "Shrouded Stacks",
 		"specificNames": [
-			"Shrouded Coast"
+			"Shrouded Stacks"
 		]
 	},
 	"WVWA": {
@@ -285,6 +285,33 @@
 		"name": "Outer Rim",
 		"specificNames": [
 			"Outer Rim"
+		]
+	},
+	"WVWB": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Fractured Gateway",
+		"specificNames": [
+			"Fractured Gateway"
+		]
+	},
+	"WMPA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Migration Path",
+		"specificNames": [
+			"Migration Path"
+		]
+	},
+	"WPGA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "Pillar Grove",
+		"specificNames": [
+			"Pillar Grove"
 		]
 	}
 }
