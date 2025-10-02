@@ -1269,9 +1269,11 @@
                         if (regionName != undefined) regionName = regionName["name"];
                         else regionName = "Random warp";
 
-                        taghtml += "<div class=\"warppoint-filter\">";
-                        if (warpData.destRegion != "sb") taghtml += `<img class="warppoint-image" src="./resources/warp/${icon}.png" title="${regionName}"/>`;
-                        taghtml += "</div>";
+						if (region.toLowerCase() != "waua") {
+							taghtml += "<div class=\"warppoint-filter\">";
+							taghtml += `<img class="warppoint-image" src="./resources/warp/${icon}.png" title="${regionName}"/>`;
+							taghtml += "</div>";
+						}
 
                         return L.marker(latlng, {
                             icon: L.divIcon({
