@@ -120,9 +120,9 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "普照港",
+		"name": "烈日港",
 		"specificNames": [
-			"Sunlit Port"
+			"Sunbaked Alley"
 		]
 	},
 	"WSKC": {
@@ -138,9 +138,9 @@
 		"slugcats": [
 			"watcher"
 		],
-		"name": "雾罩海岸",
+		"name": "隐蔽堆层",
 		"specificNames": [
-			"Shrouded Coast"
+			"Shrouded Stacks"
 		]
 	},
 	"WVWA": {
@@ -285,6 +285,33 @@
 		"name": "外缘（观望者）",
 		"specificNames": [
 			"Outer Rim"
+		]
+	},
+	"WVWB": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "断裂通道",
+		"specificNames": [
+			"Fractured Gateway"
+		]
+	},
+	"WMPA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "迁徙之路",
+		"specificNames": [
+			"Migration Path"
+		]
+	},
+	"WPGA": {
+		"slugcats": [
+			"watcher"
+		],
+		"name": "柱林",
+		"specificNames": [
+			"Pillar Grove"
 		]
 	}
 }
