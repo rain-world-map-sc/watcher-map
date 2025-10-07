@@ -1136,7 +1136,7 @@
                                     if (spawn.lineage[i] == "") path = "./resources/none.png";
                                     divhtml += `<div class="lineage-entry${rottype > 0 ? " tall" : ""}">
                                         <img class="icon-image" src="${path}"/>
-                                        <div class="icon-label">${Math.trunc(Number.parseFloat(spawn.lineage_probs[i]) * 100)}%</div>
+                                        <div class="icon-label">${Math.trunc(Number.parseFloat(spawn.lineage_probs[i]) * 10000) / 100}%</div>
                                         <div class="icon-tooltip">${tooltip}</div>
                                         </div>`;
                                 }
