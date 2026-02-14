@@ -983,6 +983,7 @@
         var warpPointsLayer;
         var warpDestsLayer;
         var rippleEggsLayer;
+        var vistaPointsLayer;
         var loadedDifficulty = null;
         var loadedRegion = null;
         var rottedRegions = ["wora", "wsur", "whir", "wgwr", "wdsr"];
@@ -1457,6 +1458,26 @@
                 });
                 if (hadRippleEggs) rippleEggsLayer.addTo(map);
                 overlays.addOverlay(rippleEggsLayer, "涟漪游魂");
+				
+				// Vista points
+				let hadVistaPoints = map.hasLayer(vistaPointsLayer) || loadedRegion == null;
+				if (vistaPointsLayer != null) {
+					overlays.removeLayer(vistaPointsLayer);
+					map.removeLayer(vistaPointsLayer);
+				}
+				vistaPointsLayer = L.geoJSON(json["vista_features"], {
+					pointToLayer: function(feature, latlng) {
+						return L.marker(latlng, {
+							icon: L.divIcon({
+								className: "vista-divs",
+								html: `<div class="vista-entry"><img class="object-image" src="./resources/Vista_icon.png"/></div>`
+							}),
+							interactive: false
+						});
+					}
+				});
+				if (hadVistaPoints) vistaPointsLayer.addTo(map);
+				overlays.addOverlay(vistaPointsLayer, "Vistas (模组)");
 
                 // Room Tags
                 let hadRoomTags = map.hasLayer(roomTagsLayer) || loadedRegion == null;
@@ -1553,6 +1574,7 @@
                 if (loadedCount == 1) {
                     map.removeLayer(roomTagsLayer);
                     map.removeLayer(rippleEggsLayer);
+                    map.removeLayer(vistaPointsLayer);
                     setCollapsibleWidths();
 
                     // Also check the radio button
